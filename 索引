@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+int index (char* s , char *t ){
+    int i , j , k;
+    int len = strlen ( s ) ;
+    for ( i = len - 1 ; i >= 0 ; i--){
+        for ( j = i , k = 0 ; t[k] != 0 && s[j] == t[k] ; j++ , k++ )
+            ;
+        if ( k > 0 && t[k] == '\0') return i;
+    }
+    return -1;
+}
+
+int main(){
+    char t[]="gaotu";
+    char s[]="Hello,gaotu!Do you love the world.YES,I love!";
+    int address;
+    address = index ( s , t ) ;
+    printf("%d",address);
+    return 0;
+}
